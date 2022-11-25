@@ -7,18 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="405.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ventanaUsuarioController">
+<AnchorPane prefHeight="405.0" prefWidth="755.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ventanaUsuarioController">
    <children>
-      <Label layoutX="255.0" layoutY="21.0" text="Sputafy">
+      <Label layoutX="19.0" layoutY="21.0" text="Storify">
          <font>
             <Font name="Leelawadee UI Semilight" size="37.0" />
          </font>
       </Label>
-      <ImageView fitHeight="102.0" fitWidth="115.0" layoutX="383.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Logo_sputafy.png" />
-         </image>
-      </ImageView>
       <Button layoutX="276.0" layoutY="194.0" mnemonicParsing="false" onAction="#AgregarALista" prefHeight="37.0" prefWidth="214.0" text="Agregar cancion a mi lista">
          <font>
             <Font size="16.0" />
@@ -29,7 +24,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="681.0" layoutY="21.0" mnemonicParsing="false" onAction="#Salir" text="Salir">
+      <Button layoutX="681.0" layoutY="21.0" mnemonicParsing="false" onAction="#Salir" style="-fx-background-color: orange;" text="Exit">
          <font>
             <Font size="16.0" />
          </font>
