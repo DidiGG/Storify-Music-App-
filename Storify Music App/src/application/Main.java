@@ -2,6 +2,8 @@ package application;
 
 
 import java.util.ArrayList;
+import java.util.Optional;
+
 import javax.swing.JOptionPane;
 
 import archivos.Persistencia;
@@ -15,6 +17,8 @@ import controller.ventanaUsuarioController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import model.Artista;
@@ -315,6 +319,39 @@ public class Main extends Application {
 
 	public void eliminarCancionUser(String correoUserIngresado, Cancion cancionSeleccionadaMias) {
 		rep.eliminarCancionListaUser(correoUserIngresado, cancionSeleccionadaMias);
+	}
+	
+	
+	
+	
+	private boolean mostrarMensajeInformacion(String mensaje) {
+
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setHeaderText(null);
+		alert.setTitle("Informacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
+
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	private boolean mostrarMensajeError(String mensaje) {
+		Alert alert = new Alert(Alert.AlertType.ERROR);
+		alert.setHeaderText(null);
+		alert.setTitle("Confirmacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
+
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 

@@ -1,6 +1,5 @@
 package controller;
 
-import javax.swing.JOptionPane;
 
 import application.Main;
 import javafx.event.ActionEvent;
