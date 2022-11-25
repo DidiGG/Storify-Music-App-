@@ -47,6 +47,7 @@ public class Main extends Application {
 		this.primaryStage.setTitle("Storify Music");
 		this.primaryStage.setResizable(false);
 		mostrarVentanaBienvenida();
+		System.out.println("que rico");
 
 	}
 
