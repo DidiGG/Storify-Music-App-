@@ -37,7 +37,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("Sputafy");
+		this.primaryStage.setTitle("Storify Music");
 		this.primaryStage.setResizable(false);
 
 		// SOLO SE USO LA PRIMERA VEZ PARA GUARDAR LOS DATOS Y YA LUEGO SOLO SE GARDA DESDE EL RECURSO
@@ -70,7 +70,7 @@ public class Main extends Application {
 	public void mostrarVentanaCrearUsuario(){
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/view/CrearUserView.fxml"));
+			loader.setLocation(Main.class.getResource("/view/agregarUsuarioView.fxml"));
 
 			AnchorPane rootLayout = (AnchorPane)loader.load();
 
