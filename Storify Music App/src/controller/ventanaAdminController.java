@@ -57,7 +57,6 @@ public class ventanaAdminController {
 
 	    }
 
-
 	    @FXML
 	    void SubirCancion(ActionEvent event) {
 
