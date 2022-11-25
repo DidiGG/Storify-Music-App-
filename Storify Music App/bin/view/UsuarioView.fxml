@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="577.0" prefWidth="779.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ventanaUsuarioController">
+<AnchorPane prefHeight="577.0" prefWidth="779.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ventanaUsuarioController">
    <children>
       <Label layoutX="533.0" layoutY="210.0" text="Storify Music">
          <font>
@@ -37,13 +34,13 @@
       </Button>
       <TableView fx:id="tablaListaTodasCanciones" layoutX="19.0" layoutY="56.0" prefHeight="416.0" prefWidth="237.0">
         <columns>
-          <TableColumn fx:id="columnNombTodas" prefWidth="121.0" text="nombre" />
+          <TableColumn fx:id="columnNombTodas" prefWidth="121.0" text="Cancion " />
           <TableColumn fx:id="columnArtiTodas" prefWidth="115.0" text="artista" />
         </columns>
       </TableView>
       <TableView fx:id="tablaListaMisCanciones" layoutX="272.0" layoutY="56.0" prefHeight="416.0" prefWidth="237.0">
          <columns>
-            <TableColumn fx:id="columnNombMias" prefWidth="116.0" text="nombre" />
+            <TableColumn fx:id="columnNombMias" prefWidth="116.0" text="Cancion " />
             <TableColumn fx:id="columnArtiMias" prefWidth="120.0" text="artista" />
          </columns>
       </TableView>
@@ -61,7 +58,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <ImageView fitHeight="206.0" fitWidth="200.0" layoutX="535.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="181.0" fitWidth="185.0" layoutX="545.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/26834.png" />
          </image>
