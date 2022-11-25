@@ -7,91 +7,57 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="472.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CancionVIewController">
+<AnchorPane prefHeight="472.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CancionVIewController">
    <children>
-      <Label layoutX="17.0" layoutY="83.0" text="Nombre de la cancion">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtNombCancion" layoutX="182.0" layoutY="81.0" />
-      <Label layoutX="127.0" layoutY="136.0" text="Artista">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtArtista" layoutX="182.0" layoutY="134.0" />
-      <TextField fx:id="txtCodigo" layoutX="182.0" layoutY="181.0" />
-      <Label layoutX="121.0" layoutY="183.0" text="Codigo">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button layoutX="209.0" layoutY="226.0" mnemonicParsing="false" onAction="#GenerarCodigo" text="Generar Codigo" />
-      <Label layoutX="39.0" layoutY="272.0" text="Nombre del album">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtAlbum" layoutX="182.0" layoutY="270.0" />
-      <Label layoutX="378.0" layoutY="83.0" text="Caratula:">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="IMVcaratula" fitHeight="132.0" fitWidth="156.0" layoutX="458.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="383.0" layoutY="272.0" text="Genero">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <RadioButton fx:id="RBreggaeton" layoutX="449.0" layoutY="275.0" mnemonicParsing="false" text="Reggaeton">
-         <toggleGroup>
-            <ToggleGroup fx:id="GeneroCancion" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="RBrock" layoutX="449.0" layoutY="299.0" mnemonicParsing="false" text="Rock" toggleGroup="$GeneroCancion" />
-      <RadioButton fx:id="RBpunk" layoutX="449.0" layoutY="326.0" mnemonicParsing="false" text="Punk" toggleGroup="$GeneroCancion" />
-      <RadioButton fx:id="RBpop" layoutX="449.0" layoutY="354.0" mnemonicParsing="false" text="Pop" toggleGroup="$GeneroCancion" />
-      <RadioButton fx:id="RBelectronica" layoutX="449.0" layoutY="381.0" mnemonicParsing="false" text="Electronica" toggleGroup="$GeneroCancion" />
-      <Button layoutX="209.0" layoutY="407.0" mnemonicParsing="false" onAction="#GuardarCancion" prefHeight="43.0" prefWidth="109.0" text="Guardar">
+      <Pane layoutX="363.0" prefHeight="472.0" prefWidth="163.0" style="-fx-background-color: gray;">
+         <children>
+            <Label layoutX="17.0" layoutY="204.0" text="Genero">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="RBreggaeton" layoutX="14.0" layoutY="256.0" mnemonicParsing="false" text="Reggaeton">
+               <toggleGroup>
+                  <ToggleGroup fx:id="GeneroCancion" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="RBrock" layoutX="14.0" layoutY="283.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="79.0" text="Rock" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBpunk" layoutX="11.0" layoutY="315.0" mnemonicParsing="false" text="Punk" toggleGroup="$GeneroCancion" />
+            <RadioButton fx:id="RBpop" layoutX="14.0" layoutY="344.0" mnemonicParsing="false" text="Pop" toggleGroup="$GeneroCancion" />
+            <Button layoutX="52.0" layoutY="421.0" mnemonicParsing="false" onAction="#Devolver" style="-fx-background-color: orange;" text="Atras">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <RadioButton fx:id="RBelectronica" layoutX="14.0" layoutY="377.0" mnemonicParsing="false" text="Electronica" toggleGroup="$GeneroCancion" />
+            <ImageView fitHeight="132.0" fitWidth="185.0" layoutX="16.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/26834.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TextField fx:id="txtNombCancion" layoutX="189.0" layoutY="211.0" promptText="Nombre de cancion" />
+      <TextField fx:id="txtArtista" layoutX="21.0" layoutY="211.0" promptText="Artista" />
+      <Button layoutX="21.0" layoutY="270.0" mnemonicParsing="false" onAction="#GenerarCodigo" prefHeight="25.0" prefWidth="149.0" text="Generar Codigo" />
+      <TextField fx:id="txtAlbum" layoutX="189.0" layoutY="350.0" promptText="Nombre del album" />
+      <Button layoutX="131.0" layoutY="393.0" mnemonicParsing="false" onAction="#GuardarCancion" prefHeight="43.0" prefWidth="109.0" text="Agregar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <ImageView fitHeight="79.0" fitWidth="69.0" layoutX="583.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/Logo_sputafy.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="300.0" layoutY="20.0" text="Cancion">
+      <Label layoutX="134.0" layoutY="126.0" text="Music">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="314.0" text="Duracion">
+      <TextField fx:id="txtURL" layoutX="21.0" layoutY="350.0" promptText="Url Youtube" />
+      <TextArea fx:id="txtCodigo" layoutX="189.0" layoutY="270.0" prefHeight="25.0" prefWidth="149.0" promptText="Codigo Cancion" />
+      <Separator layoutX="14.0" layoutY="320.0" prefHeight="0.0" prefWidth="325.0" />
+      <Text layoutX="86.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storify">
          <font>
-            <Font size="16.0" />
+            <Font size="64.0" />
          </font>
-      </Label>
-      <TextField fx:id="txtDuracion" layoutX="182.0" layoutY="312.0" />
-      <Label layoutX="81.0" layoutY="361.0" text="URL Youtube">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtURL" layoutX="182.0" layoutY="359.0" />
-      <Button layoutX="30.0" layoutY="24.0" mnemonicParsing="false" onAction="#Devolver" text="Atras">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
-      <Label layoutX="409.0" layoutY="416.0" text="Año">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtAnio" layoutX="455.0" layoutY="414.0" />
-      <Button layoutX="484.0" layoutY="226.0" mnemonicParsing="false" onAction="#CargarCaratula" text="Cargar caratula" />
+      </Text>
    </children>
 </AnchorPane>

@@ -19,50 +19,44 @@ public class agregarCancionController {
 	private ObservableList<Cancion> listaCancionesData = FXCollections.observableArrayList();
 	Cancion cancionSeleccionada;
 
+	@FXML
+	private TableView<Cancion> tablaCanciones;
 
-		@FXML
-	    private TableView<Cancion> tablaCanciones;
+	@FXML
+	private TableColumn<String, Cancion> columnArtista;
 
-	    @FXML
-	    private TableColumn<String, Cancion> columnArtista;
+	@FXML
+	private TableColumn<String, Cancion> columnNombre;
 
-	    @FXML
-	    private TableColumn<String, Cancion> columnNombre;
+	public void setAplicacion(Main aplicacion) {
+		this.aplicacion = aplicacion;
+		tablaCanciones.getItems().clear();
+		tablaCanciones.setItems(getListaCanciones());
 
-	    public void setAplicacion(Main aplicacion) {
-			this.aplicacion = aplicacion;
-			tablaCanciones.getItems().clear();
-			tablaCanciones.setItems(getListaCanciones());
+	}
 
+	private ObservableList<Cancion> getListaCanciones() {
+		listaCancionesData.addAll(aplicacion.obtenerCanciones());
+		return listaCancionesData;
+	}
+
+	@FXML
+	void initialize() {
+		this.columnArtista.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		this.columnNombre.setCellValueFactory(new PropertyValueFactory<>("nomArtista"));
+		tablaCanciones.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+			cancionSeleccionada = newSelection;
+		});
+	}
+
+	@FXML
+	void agregarCancion(ActionEvent event) {
+
+		if (cancionSeleccionada != null) {
+			aplicacion.agregarCancionListaUser(null, cancionSeleccionada);
+			aplicacion.mostrarVentanaUsuario(null);
+		} else {
+			JOptionPane.showMessageDialog(null, "seleccione una cancion");
 		}
-
-
-	    private ObservableList<Cancion> getListaCanciones() {
-			listaCancionesData.addAll(aplicacion.obtenerCanciones());
-			return listaCancionesData;
-		}
-
-	    @FXML
-	    void initialize(){
-	    	this.columnArtista.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-	    	this.columnNombre.setCellValueFactory(new PropertyValueFactory<>("nomArtista"));
-	    	tablaCanciones.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-	    		cancionSeleccionada = newSelection;
-	    		});
-	    	}
-
-
-		@FXML
-	    void agregarCancion(ActionEvent event) {
-
-			if(cancionSeleccionada!=null){
-				aplicacion.agregarCancionListaUser(null, cancionSeleccionada);
-				aplicacion.mostrarVentanaUsuario(null);
-			}else{
-				JOptionPane.showMessageDialog(null, "seleccione una cancion");
-			}
-
-
-
-	    }
+	}
 }
