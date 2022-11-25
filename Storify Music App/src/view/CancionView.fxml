@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="472.0" prefWidth="526.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CancionVIewController">
    <children>
-      <Pane layoutX="363.0" prefHeight="472.0" prefWidth="163.0" style="-fx-background-color: gray;">
+      <Pane layoutX="360.0" prefHeight="472.0" prefWidth="166.0" style="-fx-background-color: gray;">
          <children>
             <Label layoutX="17.0" layoutY="204.0" text="Genero">
                <font>

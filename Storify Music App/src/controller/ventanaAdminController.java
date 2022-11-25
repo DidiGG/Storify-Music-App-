@@ -57,12 +57,6 @@ public class ventanaAdminController {
 
 	    }
 
-		@FXML
-	    void cancionesArtis(ActionEvent event) {
-			aplicacion.mostrarVentanaCancArti();
-	    }
-
-
 
 	    @FXML
 	    void SubirCancion(ActionEvent event) {
