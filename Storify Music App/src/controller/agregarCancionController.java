@@ -14,7 +14,6 @@ import model.Cancion;
 
 public class agregarCancionController {
 
-
 	Main aplicacion;
 
 	private ObservableList<Cancion> listaCancionesData = FXCollections.observableArrayList();

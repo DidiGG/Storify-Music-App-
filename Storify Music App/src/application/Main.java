@@ -46,7 +46,8 @@ public class Main extends Application {
 		// XML
 		//Persistencia.guardarRecursoXML(rep);
 		//mostrarVentanaBienvenida();
-		mostrarVentanaUsuario("pablito@qlo.lor");
+//		mostrarVentanaUsuario("pablito@qlo.lor");
+		mostrarVentanaBienvenida();
 
 	}
 
@@ -235,7 +236,6 @@ public class Main extends Application {
 	public void crearArtistaFull(String nombre, String nacionalidad, String codigo, String genero, boolean duo) {
 		// TODO Auto-generated method stub
 		boolean verify = rep.crearArtista(nombre, nacionalidad, codigo, genero, duo);
-
 		if(verify){
 			mostrarVentanaAdmin();
 		}else{

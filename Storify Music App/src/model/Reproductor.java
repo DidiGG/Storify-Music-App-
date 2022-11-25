@@ -89,10 +89,10 @@ public class Reproductor implements Serializable{
 
 	private void quemarDatosAdmin() {
 		// TODO Auto-generated method stub
-		Administrador admin1 = new Administrador("admin", "$aDmiN");
+		Administrador admin1 = new Administrador("admin", "admin");
 		tablaAdmin.put("admin", admin1);
-		Administrador admin2 = new Administrador("1", "1");
-		tablaAdmin.put("1", admin2);
+//		Administrador admin2 = new Administrador("1", "1");
+//		tablaAdmin.put("1", admin2);
 	}
 
 
