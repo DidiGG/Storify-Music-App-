@@ -29,26 +29,24 @@ import model.Reproductor;
 public class Main extends Application {
 
 	private Stage primaryStage;
-	//private Reproductor rep = new Reproductor();
-	private Reproductor rep = Persistencia.cargarRecursoXML();
-
+	private Reproductor storify = Persistencia.cargarRecursoXML();
 
 	public static void main(String[] args) {
 		launch(args);
 	}
 
+	/*
+	 * En este espacio se encuentran los metodos para mostrar las diferentes
+	 * views del programa (non-Javadoc)
+	 * 
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
 
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Storify Music");
 		this.primaryStage.setResizable(false);
-
-		// SOLO SE USO LA PRIMERA VEZ PARA GUARDAR LOS DATOS Y YA LUEGO SOLO SE GARDA DESDE EL RECURSO
-		// XML
-		//Persistencia.guardarRecursoXML(rep);
-		//mostrarVentanaBienvenida();
-//		mostrarVentanaUsuario("pablito@qlo.lor");
 		mostrarVentanaBienvenida();
 
 	}
@@ -57,213 +55,187 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/LoginView.fxml"));
-
-			AnchorPane rootLayout = (AnchorPane)loader.load();
-
+			AnchorPane rootLayout = (AnchorPane) loader.load();
 			LoginController loginController = loader.getController();
 			loginController.setAplicacion(this);
-
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void mostrarVentanaCrearUsuario(){
+	public void mostrarVentanaCrearUsuario() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/agregarUsuarioView.fxml"));
-
-			AnchorPane rootLayout = (AnchorPane)loader.load();
-
+			AnchorPane rootLayout = (AnchorPane) loader.load();
 			CrearUserController crearUserController = loader.getController();
 			crearUserController.setAplicacion(this);
-
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	// OJO ACA EL METODO RECIBE EL CORREO DEL USUARIO QUE SE LOGUEO PARA LUEGO IDENTIFICAR LA
-	// SESION Y AL INSTANCIAR EL CONTROLADOR MANDARLE ESE CORREO
-	public void mostrarVentanaUsuario(String usuario){
+	public void mostrarVentanaUsuario(String usuario) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/UsuarioView.fxml"));
-
-			AnchorPane rootLayout = (AnchorPane)loader.load();
-
+			AnchorPane rootLayout = (AnchorPane) loader.load();
 			ventanaUsuarioController ventanaUsuario = loader.getController();
-//		    OJO ACA LE SETEO EL CORREO DEL USUARIO QUE INGRESA AL CONTROLADOR QUE ESTE USANDO ESA
-			//    SESION EN ESE INSTANTE, CON ESTO LUEGO PODR� IDENTIFICAR CUAL USUARIO EST� USANDO LA SESION
-			//    Y SE PODR� AGREGAR LAS CANCIONES A ESE USUARIO ESPECIFICO
 			ventanaUsuario.setCorreoUserIngresado(usuario);
-
 			ventanaUsuario.setAplicacion(this);
-
-
-
-
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void mostrarVentanaAdmin(){
+	public void mostrarVentanaAdmin() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/view/adminisView.fxml"));
-
-			AnchorPane rootLayout = (AnchorPane)loader.load();
-
+			loader.setLocation(Main.class.getResource("view/adminisView.fxml"));
+			AnchorPane rootLayout = (AnchorPane) loader.load();
 			ventanaAdminController ventanaAdmin = loader.getController();
 			ventanaAdmin.setAplicacion(this);
-
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void mostrarVentanaCrearArtista(){
+	public void mostrarVentanaCrearArtista() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/CrearArtistaView.fxml"));
-
-			AnchorPane rootLayout = (AnchorPane)loader.load();
-
+			AnchorPane rootLayout = (AnchorPane) loader.load();
 			ventanaCrearArtista ventanaCrearArt = loader.getController();
 			ventanaCrearArt.setAplicacion(this);
-
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void mostrarVentanaCancion(){
+	public void mostrarVentanaCancion() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/CancionView.fxml"));
-
-			AnchorPane rootLayout = (AnchorPane)loader.load();
-
-			 CancionVIewController ventanaCancion = loader.getController();
+			AnchorPane rootLayout = (AnchorPane) loader.load();
+			CancionVIewController ventanaCancion = loader.getController();
 			ventanaCancion.setAplicacion(this);
-
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void mostrarVentanaCancionDeArtistas(){
+	public void mostrarVentanaCancionDeArtistas() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class.getResource("/view/cancArtView.fxml"));
-
-			AnchorPane rootLayout = (AnchorPane)loader.load();
-
-			 mostrarCancionesArtistasController ventanaCancionArt = loader.getController();
-			 ventanaCancionArt.setAplicacion(this);
-
+			AnchorPane rootLayout = (AnchorPane) loader.load();
+			mostrarCancionesArtistasController ventanaCancionArt = loader.getController();
+			ventanaCancionArt.setAplicacion(this);
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-
-	public void crearUsuario(String nombre, String apellido, String clave, String correo) {
-
-				boolean verify = rep.crearUser(nombre, apellido, clave, correo);
-
-
-			if(verify){
-				mostrarVentanaBienvenida();
-
-			}else{
-				JOptionPane.showMessageDialog(null, "el usuario no fue creado");
-			}
-
-	}
+	/*
+	 * En este espacio se encuentran los metodos para el ingreso de usuarios y
+	 * administrador
+	 */
 
 	public void ingresarUsuario(String usuario, String contrasena) {
-		// TODO Auto-generated method stub
-		boolean verify = rep.ingresarUser(usuario, contrasena);
-
-		if(verify){
-			//        OJO ACA LE MANDO EL CORREO DEL USUARIO QUE SE EST� LOGEANDO AL METODO
-			//        DE ABRIR LA VENTANA DE USUARIO, ESE METODO ESTA EN EL MAIN Y RECIBE EL CORREO DEL USUARIO
+		boolean verify = storify.ingresarUser(usuario, contrasena);
+		if (verify) {
 			mostrarVentanaUsuario(usuario);
-		}else{
-			JOptionPane.showMessageDialog(null, "los datos no coinciden");
+		} else {
+			mostrarMensajeError("Los datos ingresados estan errados");
 		}
 	}
 
 	public void ingresarAdmin(String usuario, String contrasena) {
-		// TODO Auto-generated method stub
-		boolean verify = rep.ingresarAdmin(usuario, contrasena);
-
-		if(verify){
+		boolean verify = storify.ingresarAdmin(usuario, contrasena);
+		if (verify) {
 			mostrarVentanaAdmin();
-		}else{
-			JOptionPane.showMessageDialog(null, "los datos no coinciden");
+		} else {
+			mostrarMensajeError("Los datos ingresados estan errados");
 		}
 
 	}
 
+	/*
+	 * En este espacio se encuentran los metodos para crear los distintos
+	 * objetos
+	 */
+
 	public void crearArt() {
-		// TODO Auto-generated method stub
 		mostrarVentanaCrearArtista();
 
 	}
 
+	public void crearUsuario(String nombre, String apellido, String clave, String correo) {
+		boolean verify = storify.crearUser(nombre, apellido, clave, correo);
+		if (verify) {
+			mostrarVentanaBienvenida();
+		} else {
+			mostrarMensajeError("El usuario no puede ser creado");
+		}
+
+	}
+
 	public void crearArtistaFull(String nombre, String nacionalidad, String codigo, String genero, boolean duo) {
-		// TODO Auto-generated method stub
-		boolean verify = rep.crearArtista(nombre, nacionalidad, codigo, genero, duo);
-		if(verify){
+		boolean verify = storify.crearArtista(nombre, nacionalidad, codigo, genero, duo);
+		if (verify) {
 			mostrarVentanaAdmin();
-		}else{
-			JOptionPane.showMessageDialog(null, "los datos no coinciden");
+		} else {
+			mostrarMensajeError("Los datos ingresados estan errados");
 		}
 	}
 
+	public void crearCancion(String duracion, String nombre, String album, String anio, String uRL, String artista,
+			String codigo, String genero) {
+		boolean verify = storify.crearCanc(duracion, nombre, album, anio, uRL, artista, codigo, genero);
 
+		if (verify) {
+			mostrarVentanaAdmin();
+		} else {
+			mostrarMensajeError("Los datos ingresados estan errados");
+		}
+
+	}
 
 	public void subirCancion() {
 		mostrarVentanaCancion();
 	}
 
 	public void devolverInicio() {
-		// TODO Auto-generated method stub
 		mostrarVentanaAdmin();
 	}
 
 	public void devolverLogin() {
-		// TODO Auto-generated method stub
 		mostrarVentanaBienvenida();
 	}
 
 	public String generarCodigo() {
-		// TODO Auto-generated method stub
-		String codi = rep.generarCod();
+		String codi = storify.generarCod();
 		return codi;
 
 	}
@@ -272,74 +244,36 @@ public class Main extends Application {
 		return primaryStage;
 	}
 
-	public void crearCancion(String duracion, String nombre, String album, String anio, String uRL, String artista,
-			String codigo, String genero) {
-
-		boolean verify = rep.crearCanc(duracion, nombre, album, anio, uRL, artista, codigo, genero);
-
-		if(verify){
-			mostrarVentanaAdmin();
-		}else{
-			JOptionPane.showMessageDialog(null, "los datos no son correctos");
-		}
-
+	public ArrayList<Artista> obtenerArtista() {
+		return storify.retornarArray();
 	}
-
-
-
-	public ArrayList<Artista> obtenerArtista(){
-		return rep.retornarArray();
-	}
-
 
 	public ArrayList<Cancion> obtenerCanciones() {
-		// TODO Auto-generated method stub
-		return rep.listaCancionesArray();
+		return storify.listaCancionesArray();
 	}
 
 	public ArrayList<Cancion> obtenerListaUser(String correoUserIngresado) {
-		return rep.obtenerListaUser(correoUserIngresado);
+		return storify.obtenerListaUser(correoUserIngresado);
 	}
 
 	public ArrayList<Cancion> buscarCanArt(String autor) {
-		// TODO Auto-generated method stub
-		ArrayList<Cancion>lista = new ArrayList<>();
-		 lista = rep.buscarCArt(autor);
-		 return lista;
+		ArrayList<Cancion> lista = new ArrayList<>();
+		lista = storify.buscarCArt(autor);
+		return lista;
 	}
 
 	public void mostrarVentanaCancArti() {
-		// TODO Auto-generated method stub
 		mostrarVentanaCancionDeArtistas();
 	}
 
 	public void agregarCancionListaUser(String correoUserIngresado, Cancion cancionSeleccionadaTodas) {
-		rep.agregarCancionListaUser(correoUserIngresado, cancionSeleccionadaTodas);
+		storify.agregarCancionListaUser(correoUserIngresado, cancionSeleccionadaTodas);
 	}
 
 	public void eliminarCancionUser(String correoUserIngresado, Cancion cancionSeleccionadaMias) {
-		rep.eliminarCancionListaUser(correoUserIngresado, cancionSeleccionadaMias);
+		storify.eliminarCancionListaUser(correoUserIngresado, cancionSeleccionadaMias);
 	}
-	
-	
-	
-	
-	private boolean mostrarMensajeInformacion(String mensaje) {
 
-		Alert alert = new Alert(Alert.AlertType.INFORMATION);
-		alert.setHeaderText(null);
-		alert.setTitle("Informacion");
-		alert.setContentText(mensaje);
-		Optional<ButtonType> action = alert.showAndWait();
-
-		if (action.get() == ButtonType.OK) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	
 	private boolean mostrarMensajeError(String mensaje) {
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setHeaderText(null);
@@ -354,5 +288,6 @@ public class Main extends Application {
 		}
 	}
 
-
 }
+
+

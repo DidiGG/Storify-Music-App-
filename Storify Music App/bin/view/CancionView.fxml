@@ -53,7 +53,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="134.0" layoutY="126.0" text="Music">
+      <Label layoutX="138.0" layoutY="88.0" prefHeight="36.0" prefWidth="78.0" text="Music">
          <font>
             <Font size="25.0" />
          </font>
@@ -61,9 +61,14 @@
       <TextField fx:id="txtURL" layoutX="21.0" layoutY="350.0" promptText="Url Youtube" />
       <TextArea fx:id="txtCodigo" layoutX="189.0" layoutY="270.0" prefHeight="25.0" prefWidth="149.0" promptText="Codigo Cancion" />
       <Separator layoutX="14.0" layoutY="320.0" prefHeight="0.0" prefWidth="325.0" />
-      <Text layoutX="86.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storify">
+      <Text layoutX="102.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storify">
          <font>
-            <Font size="64.0" />
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="102.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar nuevas pistas">
+         <font>
+            <Font size="18.0" />
          </font>
       </Text>
    </children>
