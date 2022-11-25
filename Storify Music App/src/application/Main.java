@@ -10,7 +10,6 @@ import archivos.Persistencia;
 import controller.CancionVIewController;
 import controller.CrearUserController;
 import controller.LoginController;
-import controller.mostrarCancionesArtistasController;
 import controller.ventanaAdminController;
 import controller.ventanaCrearArtista;
 import controller.ventanaUsuarioController;
@@ -142,21 +141,6 @@ public class Main extends Application {
 		}
 	}
 
-	public void mostrarVentanaCancionDeArtistas() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("/view/cancArtView.fxml"));
-			AnchorPane rootLayout = (AnchorPane) loader.load();
-			mostrarCancionesArtistasController ventanaCancionArt = loader.getController();
-			ventanaCancionArt.setAplicacion(this);
-			Scene scene = new Scene(rootLayout);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
 	/*
 	 * En este espacio se encuentran los metodos para el ingreso de usuarios y
 	 * administrador
@@ -262,16 +246,27 @@ public class Main extends Application {
 		return lista;
 	}
 
-	public void mostrarVentanaCancArti() {
-		mostrarVentanaCancionDeArtistas();
-	}
-
 	public void agregarCancionListaUser(String correoUserIngresado, Cancion cancionSeleccionadaTodas) {
 		storify.agregarCancionListaUser(correoUserIngresado, cancionSeleccionadaTodas);
 	}
 
 	public void eliminarCancionUser(String correoUserIngresado, Cancion cancionSeleccionadaMias) {
 		storify.eliminarCancionListaUser(correoUserIngresado, cancionSeleccionadaMias);
+	}
+
+	private boolean mostrarMensajeInformacion(String mensaje) {
+
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setHeaderText(null);
+		alert.setTitle("Informacion");
+		alert.setContentText(mensaje);
+		Optional<ButtonType> action = alert.showAndWait();
+
+		if (action.get() == ButtonType.OK) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	private boolean mostrarMensajeError(String mensaje) {
